@@ -1,15 +1,13 @@
-// =======================================
+// ==========================================
 // Student Skill Analyzer
-// Result Page
-// =======================================
+// result.js
+// ==========================================
 
-// Read data from Local Storage
+// Get data from localStorage
+const result = JSON.parse(localStorage.getItem("studentResult"));
 
-const studentData = JSON.parse(localStorage.getItem("studentData"));
-
-// If no data exists
-
-if (!studentData) {
+// If no data exists, go back to form page
+if (!result) {
 
     alert("No student data found.");
 
@@ -17,26 +15,121 @@ if (!studentData) {
 
 }
 
+// ==========================================
 // Display Student Information
+// ==========================================
 
-document.getElementById("name").textContent = studentData.name;
+document.getElementById("studentName").textContent =
+    result.student.name;
 
-document.getElementById("email").textContent = studentData.email;
+document.getElementById("studentEmail").textContent =
+    result.student.email;
 
-document.getElementById("phone").textContent = studentData.phone;
+document.getElementById("studentPhone").textContent =
+    result.student.phone;
 
-document.getElementById("college").textContent = studentData.college;
+document.getElementById("studentBranch").textContent =
+    result.student.branch;
 
-document.getElementById("branch").textContent = studentData.branch;
+document.getElementById("studentYear").textContent =
+    result.student.year;
 
-document.getElementById("year").textContent = studentData.year;
+document.getElementById("studentCGPA").textContent =
+    result.student.cgpa;
 
-document.getElementById("cgpa").textContent = studentData.cgpa;
 
-document.getElementById("skills").textContent = studentData.skills;
+// ==========================================
+// Display Career Recommendation
+// ==========================================
 
-document.getElementById("projects").textContent = studentData.projects;
+document.getElementById("careerRecommendation").textContent =
+    result.career_recommendation;
 
-document.getElementById("softskills").textContent = studentData.softskills;
 
-document.getElementById("career").textContent = studentData.career;
+// ==========================================
+// Display Technical Skills
+// ==========================================
+
+const technicalContainer =
+document.getElementById("technicalSkills");
+
+result.student.technical_skills.forEach(skill => {
+
+    const badge = document.createElement("span");
+
+    badge.classList.add("badge");
+
+    badge.textContent = skill;
+
+    technicalContainer.appendChild(badge);
+
+});
+
+
+// ==========================================
+// Display Soft Skills
+// ==========================================
+
+const softContainer =
+document.getElementById("softSkills");
+
+result.student.soft_skills.forEach(skill => {
+
+    const badge = document.createElement("span");
+
+    badge.classList.add("badge");
+
+    badge.textContent = skill;
+
+    softContainer.appendChild(badge);
+
+});
+
+
+// ==========================================
+// Display Improvement Areas
+// ==========================================
+
+const improvementList =
+document.getElementById("improvementList");
+
+result.improvement_areas.forEach(item => {
+
+    const li = document.createElement("li");
+
+    li.textContent = item;
+
+    improvementList.appendChild(li);
+
+});
+
+
+// ==========================================
+// Display Recommended Courses
+// ==========================================
+
+const courseList =
+document.getElementById("courseList");
+
+result.recommended_courses.forEach(course => {
+
+    const li = document.createElement("li");
+
+    li.textContent = course;
+
+    courseList.appendChild(li);
+
+});
+
+
+// ==========================================
+// Analyze Another Student
+// ==========================================
+
+function goBack(){
+
+    localStorage.removeItem("studentResult");
+
+    window.location.href = "form.html";
+
+}

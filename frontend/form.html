@@ -4,18 +4,12 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Student Skill Analyzer | Student Form</title>
+    <title>Student Skill Analyzer</title>
 
     <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/form.css">
@@ -24,238 +18,219 @@
 
 <body>
 
-    <!-- ================= HEADER ================= -->
+<div class="container">
 
-    <header>
+    <h1>Student Skill Analyzer</h1>
 
-        <nav class="navbar">
+    <p class="subtitle">
+        Fill your details to receive personalized career recommendations.
+    </p>
 
-            <h2 class="logo">
-                Student Skill Analyzer
-            </h2>
+    <form id="studentForm">
 
-            <a href="index.html" class="back-btn">
-                ← Back to Home
-            </a>
+        <!-- ===================== -->
+        <!-- Personal Information -->
+        <!-- ===================== -->
 
-        </nav>
+        <div class="card">
 
-    </header>
+            <h2>Personal Information</h2>
 
-    <!-- ================= MAIN ================= -->
+            <div class="input-group">
 
-    <main>
+                <label>Full Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required>
 
-        <div class="container">
+            </div>
 
-            <h1>Student Details</h1>
+            <div class="input-group">
 
-            <p class="subtitle">
-                Fill in your information to receive personalized career recommendations.
-            </p>
+                <label>Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter email"
+                    required>
 
-            <!-- ================= FORM ================= -->
+            </div>
 
-            <form id="studentForm">
+            <div class="input-group">
 
-                <!-- Personal Information -->
+                <label>Phone Number</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter phone number"
+                    required>
 
-                <h2>Personal Information</h2>
-
-                <div class="input-group">
-
-                    <label for="name">Full Name</label>
-
-                    <input
-                        type="text"
-                        id="name"
-                        placeholder="Enter your full name"
-                        required>
-
-                </div>
-
-                <div class="input-group">
-
-                    <label for="email">Email Address</label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter your email"
-                        required>
-
-                </div>
-
-                <div class="input-group">
-
-                    <label for="phone">Phone Number</label>
-
-                    <input
-                        type="tel"
-                        id="phone"
-                        placeholder="Enter your mobile number">
-
-                </div>
-
-                <div class="input-group">
-
-                    <label for="college">College Name</label>
-
-                    <input
-                        type="text"
-                        id="college"
-                        placeholder="Enter your college name">
-
-                </div>
-
-                <div class="input-group">
-
-                    <label for="branch">Branch</label>
-
-                    <select id="branch">
-
-                        <option>CSE</option>
-                        <option>IT</option>
-                        <option>ECE</option>
-                        <option>EEE</option>
-                        <option>Mechanical</option>
-                        <option>Civil</option>
-
-                    </select>
-
-                </div>
-
-                <div class="input-group">
-
-                    <label for="year">Year</label>
-
-                    <select id="year">
-
-                        <option>1st Year</option>
-                        <option>2nd Year</option>
-                        <option>3rd Year</option>
-                        <option>4th Year</option>
-
-                    </select>
-
-                </div>
-
-                <div class="input-group">
-
-                    <label for="cgpa">CGPA</label>
-
-                    <input
-                        type="number"
-                        id="cgpa"
-                        min="0"
-                        max="10"
-                        step="0.01"
-                        placeholder="Example: 8.75">
-
-                </div>
-
-                <!-- Technical Skills -->
-
-                <h2>Technical Skills</h2>
-
-                <div class="input-group">
-
-                    <label for="skills">
-                        Programming Languages & Technologies
-                    </label>
-
-                    <textarea
-                        id="skills"
-                        rows="4"
-                        placeholder="Example: Java, Python, HTML, CSS, JavaScript, SQL"></textarea>
-
-                </div>
-
-                <!-- Projects -->
-
-                <div class="input-group">
-
-                    <label for="projects">
-                        Projects Completed
-                    </label>
-
-                    <textarea
-                        id="projects"
-                        rows="3"
-                        placeholder="Mention your projects"></textarea>
-
-                </div>
-
-                <!-- Soft Skills -->
-
-                <h2>Soft Skills</h2>
-
-                <div class="input-group">
-
-                    <label for="softskills">
-
-                        Soft Skills
-
-                    </label>
-
-                    <textarea
-                        id="softskills"
-                        rows="3"
-                        placeholder="Communication, Leadership, Teamwork, Problem Solving"></textarea>
-
-                </div>
-
-                <!-- Career Interest -->
-
-                <h2>Career Interest</h2>
-
-                <div class="input-group">
-
-                    <label for="career">
-
-                        Preferred Career
-
-                    </label>
-
-                    <select id="career">
-
-                        <option>Software Developer</option>
-
-                        <option>Web Developer</option>
-
-                        <option>Data Scientist</option>
-
-                        <option>Machine Learning Engineer</option>
-
-                        <option>AI Engineer</option>
-
-                        <option>Cyber Security Engineer</option>
-
-                        <option>Cloud Engineer</option>
-
-                        <option>DevOps Engineer</option>
-
-                    </select>
-
-                </div>
-
-                <!-- Submit -->
-
-                <button type="submit">
-
-                    Analyze My Skills
-
-                </button>
-
-            </form>
+            </div>
 
         </div>
 
-    </main>
+        <!-- ===================== -->
+        <!-- Academic Information -->
+        <!-- ===================== -->
 
-    <!-- JavaScript -->
+        <div class="card">
 
-    <script src="js/form.js"></script>
+            <h2>Academic Information</h2>
+
+            <div class="input-group">
+
+                <label>Branch</label>
+
+                <select id="branch">
+
+                    <option>CSE</option>
+                    <option>CSM</option>
+                    <option>ECE</option>
+                    <option>EEE</option>
+                    <option>IT</option>
+                    <option>MECH</option>
+                    <option>CIVIL</option>
+
+                </select>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Year</label>
+
+                <select id="year">
+
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+
+                </select>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>CGPA</label>
+
+                <input
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    max="10"
+                    id="cgpa"
+                    placeholder="Example : 8.75">
+
+            </div>
+
+        </div>
+
+        <!-- ===================== -->
+        <!-- Technical Skills -->
+        <!-- ===================== -->
+
+        <div class="card">
+
+            <h2>Technical Skills</h2>
+
+            <div class="checkbox-grid">
+
+                <label><input type="checkbox" name="technical" value="Python">Python</label>
+
+                <label><input type="checkbox" name="technical" value="Java">Java</label>
+
+                <label><input type="checkbox" name="technical" value="C++">C++</label>
+
+                <label><input type="checkbox" name="technical" value="JavaScript">JavaScript</label>
+
+                <label><input type="checkbox" name="technical" value="HTML">HTML</label>
+
+                <label><input type="checkbox" name="technical" value="CSS">CSS</label>
+
+                <label><input type="checkbox" name="technical" value="SQL">SQL</label>
+
+                <label><input type="checkbox" name="technical" value="DBMS">DBMS</label>
+
+                <label><input type="checkbox" name="technical" value="DSA">DSA</label>
+
+                <label><input type="checkbox" name="technical" value="Python Libraries">Python Libraries</label>
+
+            </div>
+
+        </div>
+
+        <!-- ===================== -->
+        <!-- Soft Skills -->
+        <!-- ===================== -->
+
+        <div class="card">
+
+            <h2>Soft Skills</h2>
+
+            <div class="checkbox-grid">
+
+                <label><input type="checkbox" name="soft" value="Communication">Communication</label>
+
+                <label><input type="checkbox" name="soft" value="Leadership">Leadership</label>
+
+                <label><input type="checkbox" name="soft" value="Teamwork">Teamwork</label>
+
+                <label><input type="checkbox" name="soft" value="Problem Solving">Problem Solving</label>
+
+                <label><input type="checkbox" name="soft" value="Time Management">Time Management</label>
+
+                <label><input type="checkbox" name="soft" value="Critical Thinking">Critical Thinking</label>
+
+            </div>
+
+        </div>
+
+        <!-- ===================== -->
+        <!-- Career Interests -->
+        <!-- ===================== -->
+
+        <div class="card">
+
+            <h2>Career Interests</h2>
+
+            <div class="checkbox-grid">
+
+                <label><input type="checkbox" name="interest" value="AI/ML">AI / ML</label>
+
+                <label><input type="checkbox" name="interest" value="Data Science">Data Science</label>
+
+                <label><input type="checkbox" name="interest" value="Web Development">Web Development</label>
+
+                <label><input type="checkbox" name="interest" value="Cyber Security">Cyber Security</label>
+
+                <label><input type="checkbox" name="interest" value="Cloud Computing">Cloud Computing</label>
+
+                <label><input type="checkbox" name="interest" value="Software Development">Software Development</label>
+
+                <label><input type="checkbox" name="interest" value="DevOps">DevOps</label>
+
+            </div>
+
+        </div>
+
+        <!-- ===================== -->
+        <!-- Submit -->
+        <!-- ===================== -->
+
+        <button type="submit">
+
+            Analyze My Skills
+
+        </button>
+
+    </form>
+
+</div>
+
+<script src="js/form.js"></script>
 
 </body>
 

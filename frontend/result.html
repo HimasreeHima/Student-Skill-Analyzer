@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Student Skill Analyzer | Result</title>
+    <title>Analysis Result | Student Skill Analyzer</title>
 
     <!-- Google Font -->
 
@@ -31,132 +31,179 @@
 
 <body>
 
+<div class="container">
+
     <!-- ================= HEADER ================= -->
 
-    <header>
+    <header class="header">
 
-        <nav class="navbar">
+        <h1>Student Skill Analyzer</h1>
 
-            <h2 class="logo">
-
-                Student Skill Analyzer
-
-            </h2>
-
-            <a href="index.html"
-               class="back-btn">
-
-                Home
-
-            </a>
-
-        </nav>
+        <p>Your Personalized Career Analysis Report</p>
 
     </header>
 
-    <!-- ================= MAIN ================= -->
 
-    <main>
 
-        <div class="container">
+    <!-- ================= PROFILE ================= -->
 
-            <h1>Analysis Report</h1>
+    <section class="card">
 
-            <p class="subtitle">
+        <h2>👤 Student Information</h2>
 
-                Your submitted information is shown below.
+        <div class="profile-grid">
 
-            </p>
+            <div>
 
-            <!-- Personal Information -->
+                <strong>Name</strong>
 
-            <section class="card">
+                <p id="studentName">-</p>
 
-                <h2>👤 Student Information</h2>
+            </div>
 
-                <div class="info">
+            <div>
 
-                    <p><strong>Name:</strong> <span id="name"></span></p>
+                <strong>Email</strong>
 
-                    <p><strong>Email:</strong> <span id="email"></span></p>
+                <p id="studentEmail">-</p>
 
-                    <p><strong>Phone:</strong> <span id="phone"></span></p>
+            </div>
 
-                    <p><strong>College:</strong> <span id="college"></span></p>
+            <div>
 
-                    <p><strong>Branch:</strong> <span id="branch"></span></p>
+                <strong>Phone</strong>
 
-                    <p><strong>Year:</strong> <span id="year"></span></p>
+                <p id="studentPhone">-</p>
 
-                    <p><strong>CGPA:</strong> <span id="cgpa"></span></p>
+            </div>
 
-                </div>
+            <div>
 
-            </section>
+                <strong>Branch</strong>
 
-            <!-- Technical Skills -->
+                <p id="studentBranch">-</p>
 
-            <section class="card">
+            </div>
 
-                <h2>💻 Technical Skills</h2>
+            <div>
 
-                <p id="skills"></p>
+                <strong>Year</strong>
 
-            </section>
+                <p id="studentYear">-</p>
 
-            <!-- Projects -->
+            </div>
 
-            <section class="card">
+            <div>
 
-                <h2>📂 Projects</h2>
+                <strong>CGPA</strong>
 
-                <p id="projects"></p>
+                <p id="studentCGPA">-</p>
 
-            </section>
-
-            <!-- Soft Skills -->
-
-            <section class="card">
-
-                <h2>🤝 Soft Skills</h2>
-
-                <p id="softskills"></p>
-
-            </section>
-
-            <!-- Career -->
-
-            <section class="card">
-
-                <h2>🎯 Preferred Career</h2>
-
-                <p id="career"></p>
-
-            </section>
-
-            <!-- Status -->
-
-            <section class="card status">
-
-                <h2>✅ Status</h2>
-
-                <p>
-
-                    Data received successfully.
-
-                    Backend and AI analysis will be added in the next phase.
-
-                </p>
-
-            </section>
+            </div>
 
         </div>
 
-    </main>
+    </section>
 
-    <!-- JavaScript -->
 
-    <script src="js/result.js"></script>
+
+    <!-- ================= CAREER ================= -->
+
+    <section class="card">
+
+        <h2>💼 Career Recommendation</h2>
+
+        <div class="career-box">
+
+            <h3 id="careerRecommendation">
+
+                Machine Learning Engineer
+
+            </h3>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= TECHNICAL SKILLS ================= -->
+
+    <section class="card">
+
+        <h2>💻 Technical Skills</h2>
+
+        <div id="technicalSkills"
+
+             class="badge-container">
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= SOFT SKILLS ================= -->
+
+    <section class="card">
+
+        <h2>🤝 Soft Skills</h2>
+
+        <div id="softSkills"
+
+             class="badge-container">
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= IMPROVEMENT ================= -->
+
+    <section class="card">
+
+        <h2>📈 Improvement Areas</h2>
+
+        <ul id="improvementList">
+
+        </ul>
+
+    </section>
+
+
+
+    <!-- ================= COURSES ================= -->
+
+    <section class="card">
+
+        <h2>📚 Recommended Courses</h2>
+
+        <ul id="courseList">
+
+        </ul>
+
+    </section>
+
+
+
+    <!-- ================= ACTION BUTTONS ================= -->
+
+    <section class="button-group">
+
+        <button onclick="goBack()">
+
+            Analyze Another Student
+
+        </button>
+
+    </section>
+
+</div>
+
+
+
+<script src="js/result.js"></script>
 
 </body>
 

@@ -1,92 +1,148 @@
-// =======================================
+// ==========================================
 // Student Skill Analyzer
-// Form Validation
-// =======================================
+// form.js
+// ==========================================
 
+// Select the form
 const form = document.getElementById("studentForm");
 
-form.addEventListener("submit", function (event) {
+// Listen for form submission
+form.addEventListener("submit", async function (event) {
 
+    // Prevent page refresh
     event.preventDefault();
 
-    // Get Values
+    // ==========================================
+    // Collect Basic Information
+    // ==========================================
+
+    const name = document.getElementById("name").value.trim();
+
+    const email = document.getElementById("email").value.trim();
+
+    const phone = document.getElementById("phone").value.trim();
+
+    const branch = document.getElementById("branch").value;
+
+    const year = parseInt(document.getElementById("year").value);
+
+    const cgpa = parseFloat(document.getElementById("cgpa").value);
+
+    // ==========================================
+    // Collect Technical Skills
+    // ==========================================
+
+    const technicalSkills = [];
+
+    document
+        .querySelectorAll('input[name="technical"]:checked')
+        .forEach(skill => {
+
+            technicalSkills.push(skill.value);
+
+        });
+
+    // ==========================================
+    // Collect Soft Skills
+    // ==========================================
+
+    const softSkills = [];
+
+    document
+        .querySelectorAll('input[name="soft"]:checked')
+        .forEach(skill => {
+
+            softSkills.push(skill.value);
+
+        });
+
+    // ==========================================
+    // Collect Career Interests
+    // ==========================================
+
+    const interests = [];
+
+    document
+        .querySelectorAll('input[name="interest"]:checked')
+        .forEach(item => {
+
+            interests.push(item.value);
+
+        });
+
+    // ==========================================
+    // Create Student Object
+    // ==========================================
 
     const studentData = {
 
-        name: document.getElementById("name").value.trim(),
+        name: name,
 
-        email: document.getElementById("email").value.trim(),
+        email: email,
 
-        phone: document.getElementById("phone").value.trim(),
+        phone: phone,
 
-        college: document.getElementById("college").value.trim(),
+        branch: branch,
 
-        branch: document.getElementById("branch").value,
+        year: year,
 
-        year: document.getElementById("year").value,
+        cgpa: cgpa,
 
-        cgpa: document.getElementById("cgpa").value,
+        technical_skills: technicalSkills,
 
-        skills: document.getElementById("skills").value.trim(),
+        soft_skills: softSkills,
 
-        projects: document.getElementById("projects").value.trim(),
-
-        softskills: document.getElementById("softskills").value.trim(),
-
-        career: document.getElementById("career").value
+        interests: interests
 
     };
 
-    // Required Fields
+    console.log(studentData);
 
-    if (
-        studentData.name === "" ||
-        studentData.email === "" ||
-        studentData.cgpa === "" ||
-        studentData.skills === ""
-    ) {
+    // ==========================================
+    // Send Data to FastAPI
+    // ==========================================
 
-        alert("Please fill all the required fields.");
+    try {
 
-        return;
+        const response = await fetch(
+            "http://127.0.0.1:8000/student",
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify(studentData)
+
+            }
+        );
+
+        // Convert response to JSON
+        const result = await response.json();
+
+        console.log(result);
+
+        // Save response for result page
+        localStorage.setItem(
+            "studentResult",
+            JSON.stringify(result)
+        );
+
+        // Redirect
+        window.location.href = "result.html";
 
     }
 
-    // Email Validation
+    catch (error) {
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        console.error(error);
 
-    if (!emailPattern.test(studentData.email)) {
-
-        alert("Please enter a valid email address.");
-
-        return;
+        alert("Unable to connect to the server.");
 
     }
-
-    // CGPA Validation
-
-    const cgpa = parseFloat(studentData.cgpa);
-
-    if (cgpa < 0 || cgpa > 10) {
-
-        alert("CGPA should be between 0 and 10.");
-
-        return;
-
-    }
-
-    // Save Data
-
-    localStorage.setItem(
-        "studentData",
-        JSON.stringify(studentData)
-    );
-
-    alert("Details submitted successfully!");
-
-    // Next Page
-
-    window.location.href = "result.html";
 
 });
